@@ -16,8 +16,7 @@ var pokemonRepository = (function () {
     var listItem = $('<li></li>');
 
     //add button
-    var button = $('<button>' + pokemon.name + '</button>');
-    button.addClass('button');
+    var button = $('<button type="btn" class="btn btn-primary" data-toggle="modal" data-target="#pokeModal">' + pokemon.name + '</button>');
     listItem.append(button);
     pokeList.append(listItem);
 
