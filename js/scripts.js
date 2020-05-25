@@ -1,7 +1,6 @@
 var pokemonRepository = (function () {
     var pokemonList = [];
     var apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
-    var $modalContainer = $('#modal-container');
 
   function getAll() {
     return pokemonList;
@@ -68,15 +67,12 @@ var pokemonRepository = (function () {
 
   // Create modal
   function showModal(item) {
-    $modalContainer.empty();
-    var modal = $('<div></div>');
-      modal.addClass('modal');
+    var modalBody = $('.modal-body');
+    var modalTitle = $('.modal-title');
+    modalBody.empty();
+    modalTitle.empty();
 
     //Add modal content
-    var closeButtonElement = $('<button>' + "Close" + '</button>');
-    closeButtonElement.addClass('modal-close');
-    closeButtonElement.on('click', hideModal);
-
     // Add character name to modal
     var nameElement = $('<h1>' + item.name + '</h1>');
 
@@ -89,32 +85,11 @@ var pokemonRepository = (function () {
     // Add character image
     var imageElement = $('<img src ='+ item.imageUrl +'>');
 
-    modal.append(closeButtonElement);
-    modal.append(nameElement);
-    modal.append(heightElement);
-    modal.append(typeElement);
-    modal.append(imageElement);
-    $modalContainer.append(modal);
-
-    $modalContainer.addClass('is-visible');
+    modalTitle.append(nameElement);
+    modalBody.append(heightElement);
+    modalBody.append(typeElement);
+    modalBody.append(imageElement);
   };
-
-  function hideModal() {
-    $modalContainer.removeClass('is-visible');
-  };
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && $modalContainer.addClass('is-visible')) {
-      hideModal();
-    }
-  });
-
-  $modalContainer.on('click', (e) => {
-    var target = e.target;
-    if (target === $modalContainer) {
-      hideModal();
-    }
-  });
 
   return {
     add: add,
@@ -122,9 +97,9 @@ var pokemonRepository = (function () {
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
+    showModal: showModal
   }
 })();
-
 
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function(pokemon) {
