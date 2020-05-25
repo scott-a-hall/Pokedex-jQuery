@@ -11,7 +11,7 @@ var pokemonRepository = (function () {
   }
 
   function addListItem(pokemon) {
-    var pokeList = $('ul');
+    var pokeList = $('#pokemon-list');
     var listItem = $('<li></li>');
 
     //add button
