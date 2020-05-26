@@ -1,0 +1,37 @@
+body {
+  font-family: Flexo-Regular, arial, sans-serif;
+}
+header {
+  margin: 10px;
+  padding-bottom: 20px;
+}
+.header_logo {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+}
+.character-list {
+  margin-left: 10px;
+  margin-top: 90px;
+}
+#pokemon-list {
+  padding: 15px;
+  border: 2px #000 solid;
+  max-width: 400px;
+}
+.btn {
+  background-color: red;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 3px;
+  text-transform: capitalize;
+  width: 100%;
+  cursor: pointer;
+  font-size: 24px;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.3);
+}
+li {
+  list-style-type: none;
+}
